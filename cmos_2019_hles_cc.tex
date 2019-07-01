@@ -1,3 +1,4 @@
+
 \documentclass{beamer}
 \usetheme{metropolis}           % Use metropolis theme
 \title{Heavy lake-effect snowfall events for the Laurentian Great Lakes region for current and future climates}
@@ -9,6 +10,8 @@
   \textsuperscript{3}Université du Québec à Montréal
 }
 
+\graphicspath{{figures/}}
+\usepackage[export]{adjustbox}
 \begin{document}
   \maketitle
 
@@ -32,7 +35,7 @@
   \section{Motivation and previous work}
   \begin{frame}{Objectives}
     \begin{itemize}
-      \item Apply a more advanced tool to study projected changes to HLES in the Great Lakes region: coupled (only over GL) GEM-NEMO system.
+      \item Apply a more advanced tool to study projected changes to HLES in the Great Lakes region: coupled GEM(atm)-NEMO(lake) system.
       \item Look into how HLES is going to change during different sub-seasons of the cold season: ND, JF, MA.
       \item Study links between HLES and other near-surface and surface fields: temperature, precipitation, ice concentration in current and future climate.
     \end{itemize}
@@ -40,7 +43,19 @@
 
   \section{Models and simulation configurations}
   \begin{frame}{Models and simulation configurations}
-    todo
+    \begin{columns}[T]
+      \column{0.4\textwidth}
+        \begin{figure}
+          \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
+        \end{figure}
+
+
+      \column{0.6\textwidth}
+        Specify GEM and NEMO options relevant for HLES.
+    \end{columns}
+
+
+
   \end{frame}
 
   \section{HLES in current climate}
@@ -60,17 +75,23 @@
     todo
   \end{frame}
 
-  \begin{frame}{Acknowledgements}
-      Logos of CNRCWP, UQAM, Compute Canada, McGill, ECCC
-  \end{frame}
 
 
   \begin{frame}{References}
     todo
-    Notaro 2013 and Notaro 2015 - current and climate change papers
-    Vavrus et al 2014
-    Dupont et al 2012
+    \begin{itemize}
+      \item Notaro 2013 and Notaro 2015 - current and climate change papers
+      \item Vavrus et al 2014
+      \item Dupont et al 2012
+    \end{itemize}
   \end{frame}
+
+
+
+  \begin{frame}{Acknowledgements}
+      Logos of CNRCWP, UQAM, Compute Canada, McGill, ECCC
+  \end{frame}
+
 
   \begin{frame}[standout]
     Questions?
