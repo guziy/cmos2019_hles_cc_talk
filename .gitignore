@@ -7,3 +7,4 @@
 *.snm
 *.fdb_latexmk
 *.toc
+.DS_Store
