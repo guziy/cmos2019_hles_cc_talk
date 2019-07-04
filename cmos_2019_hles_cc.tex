@@ -12,6 +12,9 @@
 
 \graphicspath{{figures/}}
 \usepackage[export]{adjustbox}
+\usepackage{array}
+\newcommand{\logovspace}{0.5cm}
+
 \begin{document}
   \maketitle
 
@@ -44,13 +47,13 @@
   \section{Models and simulation configurations}
   \begin{frame}{Models and simulation configurations}
     \begin{columns}[T]
-      \column{0.4\textwidth}
+      \column{0.5\textwidth}
         \begin{figure}
           \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
         \end{figure}
 
 
-      \column{0.6\textwidth}
+      \column{0.5\textwidth}
         Specify GEM and NEMO options relevant for HLES.
     \end{columns}
 
@@ -83,13 +86,23 @@
       \item Notaro 2013 and Notaro 2015 - current and climate change papers
       \item Vavrus et al 2014
       \item Dupont et al 2012
+      \item GEM/CRCM reference
+      \item NEMO reference
     \end{itemize}
   \end{frame}
 
 
-
   \begin{frame}{Acknowledgements}
-      Logos of CNRCWP, UQAM, Compute Canada, McGill, ECCC
+      \centering
+      \Large{Thanks to} \\[\logovspace]
+      \small
+      \begin{tabular} {m{14em} l}
+        \includegraphics[height=1cm]{{nserc_logo}.png} & funding \\[\logovspace]
+        \includegraphics[width=10em]{{computecanada_logo}.png}  & computing and storage resources \\[\logovspace]
+        \includegraphics[width=5.5em]{{mcgill_logo}.png} \includegraphics[width=4.5em]{{logo_uqam}.png} & for hosting us during the project   \\[\logovspace]
+        \includegraphics[width=14em]{{eccc_logo}.png} & models, libraries and tools \\[\logovspace]
+        M. Valin, K. Winger, B. Dugas, F. Dupont and other colleagues & for their help with the project
+      \end{tabular}
   \end{frame}
 
 
