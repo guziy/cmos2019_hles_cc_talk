@@ -14,6 +14,12 @@
 \usepackage[export]{adjustbox}
 \usepackage{array}
 \newcommand{\logovspace}{0.5cm}
+\usepackage{natbib}[plain]
+\renewcommand*{\bibfont}{\footnotesize}
+
+\renewcommand\bibname{}
+\renewcommand\refname{}
+
 
 \begin{document}
   \maketitle
@@ -48,9 +54,7 @@
   \begin{frame}{Models and simulation configurations}
     \begin{columns}[T]
       \column{0.5\textwidth}
-        \begin{figure}
           \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
-        \end{figure}
 
 
       \column{0.5\textwidth}
@@ -62,15 +66,45 @@
   \end{frame}
 
   \section{HLES in current climate}
-  \begin{frame}{Outline}
-    todo
+  \begin{frame}{Validation}
+
+      \begin{figure}
+        \includegraphics[width=0.8\textwidth]{hles_clim_snow_fall_1980-2009.png}
+        \caption{\footnotesize Mean cold season HLES (m)}
+      \end{figure}
+
+      \begin{columns}
+        \column{0.5\textwidth}
+          \begin{figure}
+            \includegraphics[height=0.4\textheight]{{hles_histo_all_m9_10_11_12_1_2_3_4_5}.png}
+            \caption{\footnotesize Monthly distribution of area-average HLES}
+          \end{figure}
+
+
+        \column{0.5\textwidth}
+          \begin{itemize}
+            \item Extent of HLES is mostly underestimated in GEM\_NEMO
+            \item Overestimation downwind of lake Erie
+            \item
+          \end{itemize}
+      \end{columns}
+
+
   \end{frame}
 
 
   \section{Projected changes to HLES}
-  \begin{frame}{Outline}
-    todo
+  \begin{frame}{Projected changes to the fields impacting HLES}
+    \includegraphics[height=0.9\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}
   \end{frame}
+
+  \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
+    \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
+    \begin{itemize}
+      \item TODO: summary
+    \end{itemize}
+  \end{frame}
+
 
 
 %% No section here
@@ -81,11 +115,14 @@
 
 
   \begin{frame}{References}
+    \nocite{*}
+    \bibliographystyle{apa}
+    \bibliography{references}
+
+
     todo
     \begin{itemize}
-      \item Notaro 2013 and Notaro 2015 - current and climate change papers
       \item Vavrus et al 2014
-      \item Dupont et al 2012
       \item GEM/CRCM reference
       \item NEMO reference
     \end{itemize}
