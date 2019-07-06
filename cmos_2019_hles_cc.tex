@@ -19,6 +19,12 @@
 
 \renewcommand\bibname{}
 \renewcommand\refname{}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+
+\usepackage{xcolor}
+\usepackage{bm}
 
 
 \begin{document}
@@ -50,52 +56,72 @@
     \end{itemize}
   \end{frame}
 
-  \section{Models and simulation configurations}
+  \section{Methods}
   \begin{frame}{Models and simulation configurations}
     \begin{columns}[T]
       \column{0.5\textwidth}
           \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
+          \includegraphics[width=\textwidth]{lake_parameterization_schematic.png}
 
-
-      \column{0.5\textwidth}
-        Specify GEM and NEMO options relevant for HLES.
+      \column{0.6\textwidth}
+      \begin{itemize}
+        \item Horizontal grid size and spacing: 452$\times$260, \textbf{0.1$^\circ$};
+        \item Time step:\\ 5 min (\textbf{GEM}); 30 min (\textbf{NEMO});
+        \item Surface scheme: \textbf{CLASS3.5}; 1D Lake model: \textbf{Hostetler};
+        \item \textbf{NEMO} model is used in the Great Lakes, where \textbf{LIM3} is used for lake ice;
+        \item Lateral boundary conditions: ERA-Interim (0.75$^\circ$), CanESM2 (with RCP8.5 emission scenario)
+        \end{itemize}
     \end{columns}
+  \end{frame}
 
-
-
+  \begin{frame}{HLES search algorithm}
   \end{frame}
 
   \section{HLES in current climate}
-  \begin{frame}{Validation}
+  \begin{frame}{Validation: spatial extent}
 
       \begin{figure}
-        \includegraphics[width=0.8\textwidth]{hles_clim_snow_fall_1980-2009.png}
-        \caption{\footnotesize Mean cold season HLES (m)}
+        \includegraphics[width=\textwidth]{hles_clim_snow_fall_1980-2009.png}
+        \caption{\footnotesize Climatological (1980-2010) yearly HLES (m)}
       \end{figure}
 
-      \begin{columns}
-        \column{0.5\textwidth}
-          \begin{figure}
-            \includegraphics[height=0.4\textheight]{{hles_histo_all_m9_10_11_12_1_2_3_4_5}.png}
-            \caption{\footnotesize Monthly distribution of area-average HLES}
-          \end{figure}
-
-
-        \column{0.5\textwidth}
-          \begin{itemize}
-            \item Extent of HLES is mostly underestimated in GEM\_NEMO
-            \item Overestimation downwind of lake Erie
-            \item
-          \end{itemize}
-      \end{columns}
-
-
+      \begin{itemize}
+        \item Extent of HLES is mostly underestimated
+        \item Overestimation downwind of lake Erie
+        \item Well simulated HLES band extent downwind of lake Ontario, latitude direction
+      \end{itemize}
   \end{frame}
+
+  % monthly distribution
+  \begin{frame}{Validation: HLES timing}
+
+    \begin{columns}
+      \column{0.5\textwidth}
+        \begin{figure}
+          \includegraphics[height=0.5\textheight]{{hles_histo_all_m9_10_11_12_1_2_3_4_5}.png}
+          \caption{\footnotesize Monthly distribution of area-average HLES for the 1980-2010 period}
+        \end{figure}
+
+      \column{0.5\textwidth}
+        \begin{itemize}
+          \item Very good agreement between the model and observations during Nov and Mar
+          \item Significant underestimation during Dec and Jan months, probably caused by warm temperature bias
+        \end{itemize}
+
+
+    \end{columns}
+  \end{frame}
+
 
 
   \section{Projected changes to HLES}
   \begin{frame}{Projected changes to the fields impacting HLES}
-    \includegraphics[height=0.9\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}
+    \begin{tikzpicture}[indicator/.style={scale=0.8, rectangle, very thick,draw=black!60, minimum size=3em}]
+        \node (plot) {\includegraphics[height=0.9\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
+        \node[indicator, below right = 2em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below = 3em of icesymbol.south] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
+    \end{tikzpicture}
+
   \end{frame}
 
   \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
@@ -109,7 +135,12 @@
 
 %% No section here
   \begin{frame}{Conclusions}
-    todo
+    \begin{itemize}
+      \item The system shows significant skill in modelling HLES even given resolution limitations.
+      \item On average the HLES is projected to be less frequent and of lower intensity in the region.
+      \item Control of ice on the HLES variability is much weaker in the future period.
+      \item We need to assess the uncertainty in the HLES derived from observation datasets by using different sources.
+    \end{itemize}
   \end{frame}
 
 
