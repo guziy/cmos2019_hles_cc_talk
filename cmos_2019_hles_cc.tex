@@ -112,14 +112,16 @@
     \end{columns}
   \end{frame}
 
-
-
   \section{Projected changes to HLES}
   \begin{frame}{Projected changes to the fields impacting HLES}
-    \begin{tikzpicture}[indicator/.style={scale=0.8, rectangle, very thick,draw=black!60, minimum size=3em}]
-        \node (plot) {\includegraphics[height=0.9\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
-        \node[indicator, below right = 2em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}};
-        \node[indicator, below = 3em of icesymbol.south] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
+    \begin{tikzpicture}[indicator/.style={scale=0.8, circle, very thick,draw=black!60, minimum size=3.5em}]
+        \node (plot) {\includegraphics[height=0.85\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
+        \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below = 0.8em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
+        \node[indicator, below = 0.8em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below = 0.8em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
+        \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
+        \node[below=0of plot.south]{The signs on the right indicate the impact on the changes to HLES.};
     \end{tikzpicture}
 
   \end{frame}
@@ -127,7 +129,8 @@
   \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
     \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
     \begin{itemize}
-      \item TODO: summary
+      \item Mostly decreases up to 1 cm/day
+      \item Slight increases south of Lake Superior could be explained by the increased impact of lakes on the dynamics of the atmosphere
     \end{itemize}
   \end{frame}
 
@@ -138,6 +141,7 @@
     \begin{itemize}
       \item The system shows significant skill in modelling HLES even given resolution limitations.
       \item On average the HLES is projected to be less frequent and of lower intensity in the region.
+      \item Slight increase in HLES magnitudes and frequencies is obtained south of Lake Superior during JF months.
       \item Control of ice on the HLES variability is much weaker in the future period.
       \item We need to assess the uncertainty in the HLES derived from observation datasets by using different sources.
     \end{itemize}
