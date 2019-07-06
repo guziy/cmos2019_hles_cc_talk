@@ -26,13 +26,15 @@
 \usepackage{xcolor}
 \usepackage{bm}
 
+% do not create a section for references
+\renewcommand{\bibsection}{}
 
 \begin{document}
   \maketitle
 
   \begin{frame}{Outline}
     \begin{itemize}
-      \item Motivation and previous work
+      \item Previous work and motivation
       \item Methods
       \begin{itemize}
         \item Models and simulation configurations
@@ -47,7 +49,22 @@
     \end{itemize}
   \end{frame}
 
-  \section{Motivation and previous work}
+  \section{Previous work and motivation}
+
+  \begin{frame}{Projected changes to the number of HLES days\\ by~\citet{Notaro:2015}}
+    \begin{columns}
+      \column{0.6\textwidth}
+        \includegraphics[height=0.6\textheight]{notaro_et_al_changes_to_hles_days.png}
+      \column{0.4\textwidth}
+        \begin{itemize}
+          \item 1D Lake model (Hostetler)
+          \item 20 km grid spacing
+          \item Projected mostly decreases in the number of HLES days by the end of the 21st century
+        \end{itemize}
+
+    \end{columns}
+  \end{frame}
+
   \begin{frame}{Objectives}
     \begin{itemize}
       \item Apply a more advanced tool to study projected changes to HLES in the Great Lakes region: coupled GEM(atm)-NEMO(lake) system.
@@ -129,9 +146,52 @@
   \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
     \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
     \begin{itemize}
-      \item Mostly decreases up to 1 cm/day
+      \item Mostly decreases up to 2 cm/day
       \item Slight increases south of Lake Superior could be explained by the increased impact of lakes on the dynamics of the atmosphere
     \end{itemize}
+  \end{frame}
+
+
+  \begin{frame}{Mechanisms: 2m air temperature and HLES}
+    \begin{tikzpicture}
+      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{t2m_vs_HLES.png}};
+      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+
+      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+
+      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+      \node[right= 6.4em of nd] (jf) {JF};
+      \node[right= 6.4em of jf] (ma) {MA};
+    \end{tikzpicture}
+  \end{frame}
+
+  \begin{frame}{Mechanisms: total precipitation and HLES}
+    \begin{tikzpicture}
+      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{pr_vs_HLES.png}};
+      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+
+      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+
+      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+      \node[right= 6.4em of nd] (jf) {JF};
+      \node[right= 6.4em of jf] (ma) {MA};
+    \end{tikzpicture}
+  \end{frame}
+
+  \begin{frame}{Mechanisms: lake ice concentration and HLES}
+    \begin{tikzpicture}
+      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{lkice_vs_HLES.png}};
+      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+
+      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+
+      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+      \node[right= 6.4em of nd] (jf) {JF};
+      \node[right= 6.4em of jf] (ma) {MA};
+    \end{tikzpicture}
   \end{frame}
 
 
@@ -153,14 +213,6 @@
     \nocite{*}
     \bibliographystyle{apa}
     \bibliography{references}
-
-
-    todo
-    \begin{itemize}
-      \item Vavrus et al 2014
-      \item GEM/CRCM reference
-      \item NEMO reference
-    \end{itemize}
   \end{frame}
 
 
