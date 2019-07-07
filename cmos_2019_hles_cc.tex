@@ -53,7 +53,7 @@
 
   \begin{frame}{Projected changes to the number of HLES days\\ by~\citet{Notaro:2015}}
     \begin{columns}
-      \column{0.6\textwidth}
+      \column{0.6\textwidth} 
         \includegraphics[height=0.6\textheight]{notaro_et_al_changes_to_hles_days.png}
       \column{0.4\textwidth}
         \begin{itemize}
@@ -75,21 +75,34 @@
 
   \section{Methods}
   \begin{frame}{Models and simulation configurations}
-    \begin{columns}[T]
-      \column{0.5\textwidth}
-          \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
-          \includegraphics[width=\textwidth]{lake_parameterization_schematic.png}
+    \begin{columns}
 
-      \column{0.6\textwidth}
+      \column{0.5\textwidth}
+          \vspace{0.5cm}
+          \includegraphics[width=\textwidth]{{sim_domain_and_focus_region}.png}
+          %\includegraphics[width=\textwidth]{lake_parameterization_schematic.png}
+
+      \column{0.55\textwidth}
       \begin{itemize}
-        \item Horizontal grid size and spacing: 452$\times$260, \textbf{0.1$^\circ$};
-        \item Time step:\\ 5 min (\textbf{GEM}); 30 min (\textbf{NEMO});
-        \item Surface scheme: \textbf{CLASS3.5}; 1D Lake model: \textbf{Hostetler};
+        \item Horizontal grid: 452$\times$260, \textbf{0.1$^\circ$};
+        \item $\Delta t$: 5 min (\textbf{GEM}), 30 min (\textbf{NEMO});
+        \item Subgrid lakes: 1D lake model \textbf{Hostetler};
         \item Great Lakes: \textbf{NEMO} model with \textbf{LIM3} for lake ice;
-        \item LBC and time slices: ERA-Interim (0.75$^\circ$, 1980-2010),
-        CanESM2 with RCP8.5 (\textbf{1989-2010} and \textbf{2079-2100})
         \end{itemize}
     \end{columns}
+    \vspace{0.5cm}
+    \centering
+
+    \begin{tabular}{lll}
+      \multicolumn{3}{c}{List of simulations} \\
+      \hline
+      \textbf{ID} & \textbf{LBC} & \textbf{Period} \\
+      \hline
+      GEM\_NEMO   & ERA-Interim (0.75$^\circ$) & 1980-2010 \\
+      GEM\_NEMOc  & CanESM2 & 1989-2010 \\
+      GEM\_NEMOf  & CanESM2 (RCP8.5) & 2079-2100
+    \end{tabular}
+
   \end{frame}
 
   \begin{frame}{Identifying HLES}
@@ -112,14 +125,15 @@
   \begin{frame}{Validation: spatial extent}
 
       \begin{figure}
-        \includegraphics[width=\textwidth]{hles_clim_snow_fall_1980-2009.png}
+        \includegraphics[width=0.9\textwidth]{hles_clim_snow_fall_1980-2009.png}
         \caption{\footnotesize Climatological (1980-2010) yearly HLES (m)}
       \end{figure}
 
       \begin{itemize}
+        \item Observed HLES is derived from gridded observations of temperature, ice concentrations and ERA-Interim (0.75$^\circ$) surface winds
         \item Extent of HLES is mostly underestimated
         \item Overestimation downwind of lake Erie
-        \item Well simulated HLES band extent downwind of lake Ontario, latitude direction
+        \item Well simulated HLES band extent downwind of lake Ontario
       \end{itemize}
   \end{frame}
 
@@ -193,23 +207,13 @@
 
       \node[below= 0em of plot.south]{Time correlation: 2m air temperature and HLES};
     \end{tikzpicture}
+
+    \begin{itemize}
+      \item Much weaker correlation between temperature and HLES during shoulder periods in the future
+      \item Mostly negative correlation: snow to rain ratio
+    \end{itemize}
   \end{frame}
 
-  \begin{frame}{Mechanisms: total precipitation and HLES}
-    \begin{tikzpicture}
-      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{pr_vs_HLES.png}};
-      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
-
-      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
-      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
-
-      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
-      \node[right= 6.4em of nd] (jf) {JF};
-      \node[right= 6.4em of jf] (ma) {MA};
-
-      \node[below= 0em of plot.south]{Time correlation: total precipitation and HLES};
-    \end{tikzpicture}
-  \end{frame}
 
   \begin{frame}{Mechanisms: lake ice concentration and HLES}
     \begin{tikzpicture}
@@ -227,8 +231,8 @@
     \end{tikzpicture}
 
     \begin{itemize}
-      \item item1
-      \item item2
+      \item Mostly positive correlation in the future climate: HLES decreases along with lake ice
+      \item Control of ice on HLES (negative correlation) is stronger during shoulder periods (ND,MA) in the current climate
     \end{itemize}
 
   \end{frame}
@@ -242,7 +246,6 @@
       \item On average the HLES is projected to be less frequent and of lower intensity in the region.
       \item Slight increase in HLES magnitudes and frequencies is obtained south of Lake Superior during JF months.
       \item Control of ice on the HLES variability is much weaker in the future period.
-      \item We need to assess the uncertainty in the HLES derived from observation datasets by using different sources.
     \end{itemize}
   \end{frame}
 
@@ -274,6 +277,21 @@
   \end{frame}
 
 
+  \begin{frame}{Mechanisms: total precipitation and HLES}
+    \begin{tikzpicture}
+      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{pr_vs_HLES.png}};
+      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+
+      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+
+      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+      \node[right= 6.4em of nd] (jf) {JF};
+      \node[right= 6.4em of jf] (ma) {MA};
+
+      \node[below= 0em of plot.south]{Time correlation: total precipitation and HLES};
+    \end{tikzpicture}
+  \end{frame}
 
 
 \appendix
