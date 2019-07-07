@@ -57,7 +57,7 @@
     \begin{columns}
       \column{0.6\textwidth}
         \begin{itemize}
-            \item Lake enhanced snowfall with rates $\geq$ 10 cm/day
+            \item Lake enhanced snowfall with rates~$\geq$ 10 cm/day
             \item Required conditions:
               \begin{itemize}
                 \footnotesize
@@ -200,14 +200,14 @@
   \begin{frame}{Projected changes to the fields impacting HLES}
     \begin{tikzpicture}[indicator/.style={scale=0.8, circle,draw=gray!60, minimum size=3.5em}]
         \node (plot) {\includegraphics[height=0.85\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
-        \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}\color{black}{/}\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
         \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
-        \node[below=0of plot.south]{$+/-$ signs on the right indicate field impact on changes to HLES.};
+        %\node[below=0of plot.south]{};
     \end{tikzpicture}
-
+    {\footnotesize {\color{red}{$+$}}/{\color{blue}{$-$}} indicate impact of changes to a field on changes to HLES.}
   \end{frame}
 
 
@@ -215,7 +215,7 @@
     \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
     \begin{itemize}
       \item Mostly decreases up to 2 cm/day
-      \item Slight increases south of Lake Superior could be explained by the increased impact of lakes on the dynamics of the atmosphere
+      \item Slight increases south of Lake Superior during JF and northeast of lake Huron during ND could be explained by the increased impact of lakes on the dynamics of the atmosphere
     \end{itemize}
   \end{frame}
 
@@ -283,7 +283,7 @@
     \begin{itemize}
       \item The system shows significant skill in modelling HLES even given resolution limitations.
       \item On average the HLES is projected to be less frequent and of lower intensity in the region.
-      \item Slight increase in HLES magnitudes and frequencies is obtained south of Lake Superior during JF months.
+      \item Slight increase in HLES magnitudes and frequencies is obtained south of Lake Superior and northeast of Lake Huron during JF and ND months respectively.
       \item Control of ice on the HLES variability is much weaker in the future period.
     \end{itemize}
   \end{frame}
