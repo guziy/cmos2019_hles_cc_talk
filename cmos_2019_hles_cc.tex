@@ -38,7 +38,7 @@
       \item Methods
       \begin{itemize}
         \item Models and simulation configurations
-        \item Heavy Lake Effect Snowfall (HLES) search algorithm
+        \item Identifying HLES
       \end{itemize}
 
       \item Results
@@ -58,7 +58,7 @@
       \column{0.4\textwidth}
         \begin{itemize}
           \item 1D Lake model (Hostetler)
-          \item 20 km grid spacing
+          \item 25 km grid spacing
           \item Projected mostly decreases in the number of HLES days by the end of the 21st century
         \end{itemize}
 
@@ -85,14 +85,28 @@
         \item Horizontal grid size and spacing: 452$\times$260, \textbf{0.1$^\circ$};
         \item Time step:\\ 5 min (\textbf{GEM}); 30 min (\textbf{NEMO});
         \item Surface scheme: \textbf{CLASS3.5}; 1D Lake model: \textbf{Hostetler};
-        \item \textbf{NEMO} model is used in the Great Lakes, where \textbf{LIM3} is used for lake ice;
-        \item Lateral boundary conditions: ERA-Interim (0.75$^\circ$), CanESM2 (with RCP8.5 emission scenario)
+        \item Great Lakes: \textbf{NEMO} model with \textbf{LIM3} for lake ice;
+        \item LBC and time slices: ERA-Interim (0.75$^\circ$, 1980-2010),
+        CanESM2 with RCP8.5 (\textbf{1989-2010} and \textbf{2079-2100})
         \end{itemize}
     \end{columns}
   \end{frame}
 
-  \begin{frame}{HLES search algorithm}
+  \begin{frame}{Identifying HLES}
+    Criteria implemented based on \citet{Notaro:2015}
+    \begin{columns}
+      \column{0.4\textwidth}
+        \includegraphics[width=\textwidth, trim=3cm 8cm 12.5cm 7cm, clip]{sim_domain_and_focus_region}
+      \column{0.6\textwidth}
+        \begin{itemize}
+          \item Location within 100 km of lake shorelines
+          \item 10 cm/day minimum threshold
+          \item Local amplification wrt. the surrounding 500km
+          \item Account for the wind fetch ($\geq$ 6 hours) from lake cells with ice cover less than 70\%
+        \end{itemize}
+    \end{columns}
   \end{frame}
+
 
   \section{HLES in current climate}
   \begin{frame}{Validation: spatial extent}
@@ -131,17 +145,18 @@
 
   \section{Projected changes to HLES}
   \begin{frame}{Projected changes to the fields impacting HLES}
-    \begin{tikzpicture}[indicator/.style={scale=0.8, circle, very thick,draw=black!60, minimum size=3.5em}]
+    \begin{tikzpicture}[indicator/.style={scale=0.8, circle,draw=gray!60, minimum size=3.5em}]
         \node (plot) {\includegraphics[height=0.85\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
         \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
         \node[indicator, below = 0.8em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
         \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
-        \node[below=0of plot.south]{The signs on the right indicate the impact on the changes to HLES.};
+        \node[below=0of plot.south]{$+/-$ signs on the right indicate field impact on changes to HLES.};
     \end{tikzpicture}
 
   \end{frame}
+
 
   \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
     \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
@@ -150,6 +165,18 @@
       \item Slight increases south of Lake Superior could be explained by the increased impact of lakes on the dynamics of the atmosphere
     \end{itemize}
   \end{frame}
+
+
+  \begin{frame}{Area average HLES: monthly distribution\\for 1989-2010 and 2079-2100}
+    \centering
+    \includegraphics[height=0.55\textheight]{hles_snow_histo_cc_m10_11_12_1_2_3_4_5_domain}
+    \begin{itemize}
+      \item Average HLES in the domain is projected to decrease for all months
+      \item HLES is projected to decrease 4 times during Jan
+      \item HLES season is projected to shorten by $\approx$ 2 months
+    \end{itemize}
+  \end{frame}
+
 
 
   \begin{frame}{Mechanisms: 2m air temperature and HLES}
@@ -163,6 +190,8 @@
       \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
       \node[right= 6.4em of nd] (jf) {JF};
       \node[right= 6.4em of jf] (ma) {MA};
+
+      \node[below= 0em of plot.south]{Time correlation: 2m air temperature and HLES};
     \end{tikzpicture}
   \end{frame}
 
@@ -177,6 +206,8 @@
       \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
       \node[right= 6.4em of nd] (jf) {JF};
       \node[right= 6.4em of jf] (ma) {MA};
+
+      \node[below= 0em of plot.south]{Time correlation: total precipitation and HLES};
     \end{tikzpicture}
   \end{frame}
 
@@ -191,7 +222,15 @@
       \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
       \node[right= 6.4em of nd] (jf) {JF};
       \node[right= 6.4em of jf] (ma) {MA};
+
+      \node[below= 0em of plot.south](figlabel){Time correlation: lake ice concentration and HLES};
     \end{tikzpicture}
+
+    \begin{itemize}
+      \item item1
+      \item item2
+    \end{itemize}
+
   \end{frame}
 
 
@@ -222,7 +261,7 @@
       \small
       \begin{tabular} {m{14em} l}
         \includegraphics[height=1cm]{{nserc_logo}.png} & funding \\[\logovspace]
-        \includegraphics[width=10em]{{computecanada_logo}.png}  & computing and storage resources \\[\logovspace]
+        \includegraphics[width=10em]{{computecanada_logo}.png}  & computing and storage \\[\logovspace]
         \includegraphics[width=5.5em]{{mcgill_logo}.png} \includegraphics[width=4.5em]{{logo_uqam}.png} & base universities   \\[\logovspace]
         \includegraphics[width=14em]{{eccc_logo}.png} & models, libraries and tools \\[\logovspace]
         M. Valin, K. Winger, B. Dugas, F. Dupont and other colleagues & for their help with the project
@@ -233,6 +272,9 @@
   \begin{frame}[standout]
     Questions?
   \end{frame}
+
+
+
 
 \appendix
 
