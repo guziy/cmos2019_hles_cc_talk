@@ -3,7 +3,7 @@
 \usetheme{metropolis}           % Use metropolis theme
 \title{Heavy lake-effect snowfall events for the Laurentian Great Lakes region for current and future climates}
 \date{July 2019}
-\author{O. Huziy\textsuperscript{1,2,3} and L. Sushama\textsuperscript{2}, L. Leon\textsuperscript{3}, R. Yerubandi\textsuperscript{3}}
+\author{O. Huziy\textsuperscript{1,2,3} and L. Sushama\textsuperscript{2}, L. Leon\textsuperscript{1}, R. Yerubandi\textsuperscript{1}}
 \institute{
   \textsuperscript{1}Environement and Climate Change Canada,\\
   \textsuperscript{2}McGill University,\\
@@ -13,7 +13,7 @@
 \graphicspath{{figures/}}
 \usepackage[export]{adjustbox}
 \usepackage{array}
-\newcommand{\logovspace}{0.5cm}
+
 \usepackage{natbib}[plain]
 \renewcommand*{\bibfont}{\footnotesize}
 
@@ -26,11 +26,21 @@
 \usepackage{xcolor}
 \usepackage{bm}
 
+\setbeamerfont{caption}{size=\footnotesize}
+\setbeamertemplate{caption}{\vspace{-0.5cm}\insertcaption}
+
 % do not create a section for references
 \renewcommand{\bibsection}{}
 
+
+\newcommand{\logovspace}{0.5cm}
+\newcommand{\imgcapspace}{0.5em}
+
+
 \begin{document}
   \maketitle
+
+
 
   \begin{frame}{Outline}
     \begin{itemize}
@@ -46,6 +56,8 @@
         \item HLES in current climate, validation
         \item Projected changes to HLES
       \end{itemize}
+
+      \item Summary
     \end{itemize}
   \end{frame}
 
@@ -106,7 +118,7 @@
 
   \begin{frame}{Objectives}
     \begin{itemize}
-      \item Apply a more advanced tool to study projected changes to HLES in the Great Lakes region: coupled GEM(atm)-NEMO(lake) system.
+      \item Apply a more advanced tool to study projected changes to HLES in the Great Lakes region: coupled Global Environmental Multiscale Model (GEM, atm) - NEMO(lake) system.
       \item Look into how HLES is going to change during different sub-seasons of the cold season: ND, JF, MA.
       \item Study links between HLES and other near-surface and surface fields: temperature, precipitation, ice concentration in current and future climate.
     \end{itemize}
@@ -145,18 +157,21 @@
   \end{frame}
 
   \begin{frame}{Identifying HLES}
-    Criteria implemented based on \citet{Notaro:2015}
-    \begin{columns}
-      \column{0.4\textwidth}
-        \includegraphics[width=\textwidth, trim=3cm 8cm 12.5cm 7cm, clip]{sim_domain_and_focus_region}
-      \column{0.6\textwidth}
+
+        Criteria implemented based on \citet{Notaro:2015}
         \begin{itemize}
           \item Location within 100 km of lake shorelines
           \item 10 cm/day minimum threshold
-          \item Local amplification wrt. the surrounding 500km
-          \item Account for the wind fetch ($\geq$ 6 hours) from lake cells with ice cover less than 70\%
+          \item Local amplification by 4 cm/day wrt. the surrounding 500km region (excluding the 100 km zone)
+          \item Wind fetch ($\geq$ 6 hours) from lake cells with ice cover less than 70\%
         \end{itemize}
-    \end{columns}
+
+        Observed HLES
+        \begin{itemize}
+          \item Derived from gridded observations of temperature, precipitation, ice concentrations and ERA-Interim (0.75$^\circ$) 10-m winds
+          \item Temperature and precipitation merged Canadian (ANUSPLIN) and US (Maurer et al 2002)
+        \end{itemize}
+
   \end{frame}
 
 
@@ -165,13 +180,12 @@
 
       \begin{figure}
         \includegraphics[width=0.9\textwidth]{hles_clim_snow_fall_1980-2009.png}
-        \caption{\footnotesize Climatological (1980-2010) yearly HLES (m)}
+        \caption{Climatological (1980-2010) yearly HLES (m)}
       \end{figure}
 
       \begin{itemize}
-        \item Observed HLES is derived from gridded observations of temperature, precipitation, ice concentrations and ERA-Interim (0.75$^\circ$) surface winds
         \item Extent of HLES is mostly underestimated
-        \item Overestimation downwind of lake Erie
+        \item Slight overestimation downwind of lake Erie
         \item Well simulated HLES band extent downwind of lake Ontario
       \end{itemize}
   \end{frame}
@@ -183,7 +197,7 @@
       \column{0.5\textwidth}
         \begin{figure}
           \includegraphics[height=0.5\textheight]{{hles_histo_all_m9_10_11_12_1_2_3_4_5}.png}
-          \caption{\footnotesize Monthly distribution of area-average HLES for the 1980-2010 period}
+          \caption{Monthly distribution of area-average HLES for the 1980-2010 period}
         \end{figure}
 
       \column{0.5\textwidth}
@@ -196,15 +210,33 @@
     \end{columns}
   \end{frame}
 
+
+  \begin{frame}{Validation: HLES timing}
+
+    \begin{columns}
+      \column{0.5\textwidth}
+        \begin{figure}
+          \includegraphics[height=0.5\textheight]{hles_histo_all_m9_10_11_12_1_2_3_4_5_percentages.png}
+          \caption{Monthly distribution of area-average HLES for the 1980-2010 period}
+        \end{figure}
+
+      \column{0.5\textwidth}
+        \begin{itemize}
+          \item Good agreement between model and observations
+          \item Some underestimation during Dec and Jan months
+        \end{itemize}
+    \end{columns}
+  \end{frame}
+
   \section{Projected changes to HLES}
   \begin{frame}{Projected changes to the fields impacting HLES}
     \begin{tikzpicture}[indicator/.style={scale=0.8, circle,draw=gray!60, minimum size=3.5em}]
-        \node (plot) {\includegraphics[height=0.85\textheight]{projected_changes_to_surf_and_nearsurf_fields.png}};
+        \node (plot) {\includegraphics[height=0.75\textheight, trim= 0 14em 0  0,clip]{projected_changes_to_surf_and_nearsurf_fields.png}};
         \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}\color{black}{/}\color{red}{$\pmb+$}};
-        \node[indicator, below = 0.8em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
-        \node[indicator, below = 0.8em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
-        \node[indicator, below = 0.8em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
-        \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
+        \node[indicator, below = 1.4em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
+        \node[indicator, below = 1.4em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below = 1.4em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
+        % \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
         %\node[below=0of plot.south]{};
     \end{tikzpicture}
     {\footnotesize {\color{red}{$+$}}/{\color{blue}{$-$}} indicate impact of changes to a field on changes to HLES.}
@@ -233,19 +265,20 @@
 
 
   \begin{frame}{Mechanisms: 2m air temperature and HLES}
-    \begin{tikzpicture}
-      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{t2m_vs_HLES.png}};
-      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+    \begin{figure}
+      \begin{tikzpicture}
+        \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{t2m_vs_HLES.png}};
+        \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
 
-      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
-      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+        \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+        \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
 
-      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
-      \node[right= 6.4em of nd] (jf) {JF};
-      \node[right= 6.4em of jf] (ma) {MA};
-
-      \node[below= 0em of plot.south]{Time correlation: 2m air temperature and HLES};
-    \end{tikzpicture}
+        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+        \node[right= 6.4em of nd] (jf) {JF};
+        \node[right= 6.4em of jf] (ma) {MA};
+      \end{tikzpicture}
+      \caption{Time correlation: 2m air temperature and HLES. 0-degree line is shown in black}
+    \end{figure}
 
     \begin{itemize}
       \item Much weaker correlation between temperature and HLES during shoulder periods in the future
@@ -255,19 +288,21 @@
 
 
   \begin{frame}{Mechanisms: lake ice concentration and HLES}
-    \begin{tikzpicture}
-      \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{lkice_vs_HLES.png}};
-      \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
+    \begin{figure}
+      \begin{tikzpicture}
+        \node(plot) at (0, 0) {\includegraphics[width=0.9\textwidth]{lkice_vs_HLES.png}};
+        \node[right=-0.5em of plot.east]{\includegraphics[width=0.12\textwidth]{corr_colorbar.png}};
 
-      \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
-      \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
+        \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
+        \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
 
-      \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
-      \node[right= 6.4em of nd] (jf) {JF};
-      \node[right= 6.4em of jf] (ma) {MA};
-
-      \node[below= 0em of plot.south](figlabel){Time correlation: lake ice concentration and HLES};
-    \end{tikzpicture}
+        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
+        \node[right= 6.4em of nd] (jf) {JF};
+        \node[right= 6.4em of jf] (ma) {MA};
+      \end{tikzpicture}
+      \caption{Time correlation: lake ice concentration and HLES. 0-degree line is shown in black.}
+    \end{figure}
+    \vspace{-0.5cm}
 
     \begin{itemize}
       \item Mostly positive correlation in the future climate: HLES decreases along with lake ice
