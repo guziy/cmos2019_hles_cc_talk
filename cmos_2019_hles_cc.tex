@@ -167,7 +167,7 @@
         \end{itemize}
 
         \onslide<2->
-        Observed HLES 
+        Observed HLES
         \begin{itemize}
           \item Derived from gridded observations of temperature, precipitation, ice concentrations and ERA-Interim (0.75$^\circ$) 10-m winds
           \item Temperature and precipitation merged Canadian (ANUSPLIN) and US (Maurer et al 2002)
@@ -232,20 +232,34 @@
   \section{Projected changes to HLES}
   \begin{frame}{Projected changes to the fields impacting HLES}
     \begin{tikzpicture}[indicator/.style={scale=0.8, circle,draw=gray!60, minimum size=3.5em}]
-        \node (plot) {\includegraphics[height=0.75\textheight, trim= 0 14em 0  0,clip]{projected_changes_to_surf_and_nearsurf_fields.png}};
+        \node (plot) {\includegraphics[height=0.7\textheight]{projected_changes_to_surf_and_nearsurf_fields_1.png}};
         \node[indicator, below right = 1.5em and 0.1em of plot.north east] (icesymbol) {\color{red}{$\pmb+$}\color{black}{/}\color{red}{$\pmb+$}};
-        \node[indicator, below = 1.4em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
-        \node[indicator, below = 1.4em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
-        \node[indicator, below = 1.4em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
+        \node[indicator, below = 1.em of icesymbol] (t2msymbol) {\color{blue}{$\pmb-$}\color{black}{/}\color{red}{$\pmb+$}};
+        \node[indicator, below = 1.em of t2msymbol] (prsymbol) {\color{red}{$\pmb+$}};
+        \node[indicator, below = 1.em of prsymbol] (snsymbol) {\color{blue}{$\pmb-$}};
         % \node[indicator, below = 0.8em of snsymbol] (caosymbol) {\color{blue}{$\pmb-$}};
         %\node[below=0of plot.south]{};
+
+        \node[above right= -0.5em and 3.2em of plot.north west] (nd) {\footnotesize ND};
+        \node[right= 6.4em of nd] (jf) {\footnotesize JF};
+        \node[right= 6.4em of jf] (ma) {\footnotesize MA};
     \end{tikzpicture}
-    {\footnotesize {\color{red}{$+$}}/{\color{blue}{$-$}} indicate impact of changes to a field on changes to HLES.}
+    {\footnotesize {\color{red}{$+$}}/{\color{blue}{$-$}} indicate impact of changes to a field on changes to HLES. Total precipitation and snowfall are in mm/day.}
   \end{frame}
 
 
   \begin{frame}{Projected changes to HLES: magnitudes and frequencies}
-    \includegraphics[width=\textwidth]{projected_changes_to_hles.png}
+    \vspace{-1em}
+    \begin{figure}
+      \begin{tikzpicture}
+          \node(plot){\includegraphics[width=\textwidth]{projected_changes_to_hles_1.png}};
+          \node[above right= -0.5em and 5em of plot.north west] (nd) {\footnotesize ND};
+          \node[right= 6.4em of nd] (jf) {\footnotesize JF};
+          \node[right= 6.4em of jf] (ma) {\footnotesize MA};
+      \end{tikzpicture}
+      \caption{First row: HLES (cm/day), second row HLES frequency (days)}
+    \end{figure}
+    \vspace{-0.5em}
     \begin{itemize}
       \item Mostly decreases up to 2 cm/day
       \item Slight increases south of Lake Superior during JF and northeast of lake Huron during ND could be explained by the increased impact of lakes on the dynamics of the atmosphere
@@ -274,9 +288,9 @@
         \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
         \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
 
-        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
-        \node[right= 6.4em of nd] (jf) {JF};
-        \node[right= 6.4em of jf] (ma) {MA};
+        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {\footnotesize ND};
+        \node[right= 6.4em of nd] (jf) {\footnotesize JF};
+        \node[right= 6.4em of jf] (ma) {\footnotesize MA};
       \end{tikzpicture}
       \caption{Time correlation: 2m air temperature and HLES. 0-degree line is shown in black}
     \end{figure}
@@ -297,9 +311,9 @@
         \node[above left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 1989-2010}};
         \node[below left= 0.01em and 0.01em of plot.west]{\rotatebox{90}{\footnotesize 2079-2100}};
 
-        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {ND};
-        \node[right= 6.4em of nd] (jf) {JF};
-        \node[right= 6.4em of jf] (ma) {MA};
+        \node[above right= 0.01em and 3.2em of plot.north west] (nd) {\footnotesize ND};
+        \node[right= 6.4em of nd] (jf) {\footnotesize JF};
+        \node[right= 6.4em of jf] (ma) {\footnotesize MA};
       \end{tikzpicture}
       \caption{Time correlation: lake ice concentration and HLES. 0-degree line is shown in black.}
     \end{figure}
@@ -326,12 +340,6 @@
 
 
 
-  \begin{frame}{References}
-    \nocite{*}
-    \bibliographystyle{apa}
-    \bibliography{references}
-  \end{frame}
-
 
   \begin{frame}{Acknowledgements}
       \centering
@@ -349,6 +357,12 @@
 
   \begin{frame}[standout]
     Questions?
+  \end{frame}
+
+  \begin{frame}{References}
+    \nocite{*}
+    \bibliographystyle{apa}
+    \bibliography{references}
   \end{frame}
 
 
